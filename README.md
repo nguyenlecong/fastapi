@@ -54,6 +54,21 @@ FastAPI learning[^1]
    - Multiple body params and query: đơn giản là kết hợp multiple body param với query param
    - Field: validate data hoặc thêm metadata trong 1 class
    - Nested Models: Ngoài các kiểu int, float, str, có thể thêm kiểu list hay set
-
+- **Security:**
+  - Do based trên OpenAPI nên FastAPI thừa kế security flow của OpenAPI
+  - apiKey: chỉ là key mà thôi, có thể đến từ query param, header hoặc cookie.
+  - http: hệ thống xác thực của HTTP, bao gồm:
+    - bearer: header param với giá trị là một token (thừa kế từ OAuth2)
+    - HTTP Basic authentication
+    - HTTP Digest authentication
+  - oauth2: Là 1 chuẩn giao thức ủy quyền ra đời vào tháng 10 năm 2012, được sử dụng ở hầu hết mọi ứng dụng (web, mobile), cho phép người dùng cung cấp thông tin cá nhân bởi ứng dụng của bên thứ 3, cũng được dùng để cung cấp cơ chế cho việc xác thực người dùng
+  - openIdConnect: Based trên OAuth2, là 1 layer nằm phía trên giao thức OAuth2
+  - OAuth2 với Password và Bearer
+  - Get current user
+  - OAuth2 với Password (có hashing), Bearer với JWT tokens:
+    - JWT, viết tắt của JSON Web Tokens, là 1 chuỗi các ký tự, dạng mã hóa của Json
+    - Các thư viện cần cài thêm: jose (để sinh JWT token, passlib (hash password))
+      - `pip install python-jose[cryptography]`
+      - `pip install passlib[bcrypt]`
 
 [^1]: [Hướng dẫn cơ bản framework FastAPI từ A -> Z](https://viblo.asia/p/huong-dan-co-ban-framework-fastapi-tu-a-z-phan-1-V3m5W0oyKO7)
