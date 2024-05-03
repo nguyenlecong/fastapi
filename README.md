@@ -24,28 +24,36 @@ FastAPI learning[^1]
   - **Easy:** dễ dùng, dễ đọc
   - **Short:** Tối thiểu lặp code. Các tham số truyền vào có nhiều tính năng. Ít bugs
   - **Robust:** hiệu năng mạnh mẽ, có thể tương tác API qua docs
+    
 <a name="cai-dat">- **Cài đặt:**</a>
   - Python 3.6+
   - fastapi: `pip install fastapi ([all])`
   - ASGI server khi deploy (uvicorn/hypercorn): `pip install uvicorn`
     - ASGI kết thừa từ WSGI
     - WSGI là 1 chuẩn giao tiếp giữa web server và Python app server; linh hoạt, xử lý nhiều request cùng lúc...
+      
 <a name="fastapi-docs">- **FastAPI Docs:**</a>
+
     - `http://0.0.0.0:8000/docs`
     - `http://0.0.0.0:8000/redoc`
+    
 <a name="create-api">- **Create a simple API:**</a>
+
     - Run app: `(python -m) uvicorn main:app --host 0.0.0.0 --port 8000 (--reload)`
     - Check result: `http://127.0.0.1:8000`
+    
 <a name="path-params">- **Path Parameters:**</a>
   - Truyền parameter thông qua đường dẫn
   - Path parameters with types, data validation
   - FastAPI hỗ trợ khai báo đường dẫn trong đường dẫn
+    
 <a name="query-params">- **Query parameters:**</a>
   - Truyền dưới dạng key-value `http://127.0.0.1:8000/dbitems/?skip=0&limit=10`
   - Optional parameters: Có tác dụng check lỗi nếu xảy ra `http://127.0.0.1:8000/items/1?q=1  # 1 là item_id và ?q=1 là giá trị của q`
   - Query parameter type conversion: Thay đổi giá trị mặc định bằng cách truyền giá trị trên đường dẫn `http://127.0.0.1:8000/items/foo?short=1 or http://127.0.0.1:8000/items/foo?short=True`
   - Multiple path and query parameters: Với các đường dẫn lồng nhau, FastAPI biết param nào với param nào dựa trên tên param
   - Required query parameters: Thiếu param trên đường dẫn sẽ báo lỗi
+    
 <a name="req-body">- **Request Body:**</a>
   - Request body: người dùng gửi request từ browser đến API
   - Response body: dựa trên request, API trả về response cho người dùng
@@ -54,18 +62,22 @@ FastAPI learning[^1]
   - Request body + path parameters:
     - FastAPI hỗ trợ khai báo tham số URL và request body cùng lúc, framework sẽ biết tham số nào truyền từ đường dẫn và tham số nào lấy từ request
     - Tương tự, có thể thêm tham số URL, tham số query và request body cùng lúc
+      
 <a name="string-valid">- **Query Parameters and String Validations:**</a>
   - Attribute Optional có độ dài bị giới hạn không vượt quá 50 ký tự. Nên FastAPI cung cấp class Query
   - Query parameter list / multiple values: Ngoài định dạng string và integer, FastAPI còn hỗ trợ type List `http://localhost:8000/items/1/?q=foo&q=bar`
+    
 <a name="numeric-valid">- **Path Parameters and Numeric Validations:**</a>
   - Tương tự Query, FastAPI cung cấp class Path
   -  Number validations
+    
 <a name="body">-  **Body:**</a>
    - Multiple Parameters: FastAPI hỗ trợ tạo format cho request body
    - Singular values in body: có thể thêm define 1 body cho chỉ 1 giá trị mà không cần khai báo class
    - Multiple body params and query: đơn giản là kết hợp multiple body param với query param
    - Field: validate data hoặc thêm metadata trong 1 class
    - Nested Models: Ngoài các kiểu int, float, str, có thể thêm kiểu list hay set
+     
 <a name="security">- **Security:**</a>
   - Do based trên OpenAPI nên FastAPI thừa kế security flow của OpenAPI
   - apiKey: chỉ là key mà thôi, có thể đến từ query param, header hoặc cookie.
