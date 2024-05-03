@@ -12,7 +12,7 @@ FastAPI learning[^1]
 - [Path Parameters and Numeric Validations](#numeric-valid)
 - [Body](#body)
 - [Security](#security)
-
+***
 <a name="khai-niem">- **Khái niệm:**</a>
   - >FastAPI framework, high performance, easy to learn, fast to code, ready for production
   - FastAPI là 1 web framework dùng để build API có hiệu năng cao, code đơn giản, hỗ trợ tốt cho việc làm sản phẩm
